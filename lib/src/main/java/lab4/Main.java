@@ -19,11 +19,12 @@ public class Main {
         Bitmap fliphor= new Bitmap(inputPath,outputPath,fliphorizontally);
 
         noBlueImage.deleteBlue();
-
-
-
+        System.out.println("All Blue Colors From Image Deleted");
         noGreenImage.deleteGreen();
+        System.out.println("All Green Colors From Image Deleted");
         fliphor.filpVertical();
+        System.out.println("Image Flipped Vertically");
+
 
     }
 }
