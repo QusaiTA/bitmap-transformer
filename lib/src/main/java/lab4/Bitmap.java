@@ -13,11 +13,11 @@ import java.io.IOException;
 public class Bitmap {
 
 
-  String input;
-  String output;
-  String newName;
+  String input; // image path
+  String output; // image after edit path
+  String newName; // image name after edit
 
-  BufferedImage img = null;
+  BufferedImage img = null ;
 
 
     public Bitmap(String input, String output, String newName) throws IOException{
@@ -43,14 +43,14 @@ public class Bitmap {
     }
 
 //     this method is use to remove any Blue colors..
-    public void filterBlue() throws IOException {
-        Color currentColor , color ;
+    public void deleteBlue() throws IOException {
+        Color currentColor , newColor ;
         BufferedImage img = ImageIO.read(new File(input));
         for (int i = 0; i < img.getHeight(); i++) {
             for (int j = 0; j < img.getWidth(); j++) {
                 currentColor = new Color(img.getRGB(j,i));
-                color = new Color(currentColor.getRed() , currentColor.getGreen() , 0);
-                img.setRGB(j , i ,color.getRGB());
+                newColor = new Color(currentColor.getRed() , currentColor.getGreen() , 0);
+                img.setRGB(j , i ,newColor.getRGB());
             }
 
         }
@@ -59,15 +59,14 @@ public class Bitmap {
     }
 
 //     this method is use to remove any Green colors..
-
-    public void filterGreen() throws IOException {
-        Color currentColor , color ;
+    public void deleteGreen() throws IOException {
+        Color currentColor , newColor ;
         BufferedImage img = ImageIO.read(new File(input));
         for (int i = 0; i < img.getHeight(); i++) {
             for (int j = 0; j < img.getWidth(); j++) {
                 currentColor = new Color(img.getRGB(j,i));
-                color = new Color(currentColor.getRed() , 0 , currentColor.getBlue());
-                img.setRGB(j , i ,color.getRGB());
+                newColor = new Color(currentColor.getRed() , 0 , currentColor.getBlue());
+                img.setRGB(j , i ,newColor.getRGB());
             }
 
         }
@@ -75,6 +74,7 @@ public class Bitmap {
 
     }
 
+//     this method is use to flip images vertically..
 
     public void filpVertical() throws IOException {
 
